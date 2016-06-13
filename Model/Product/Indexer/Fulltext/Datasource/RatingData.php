@@ -39,16 +39,18 @@ class RatingData implements DatasourceInterface
     }
 
     /**
-     * Add inventory data to the index data.
+     * Add rating data to the index data.
      * {@inheritdoc}
      */
     public function addData($storeId, array $indexData)
     {
-        $inventoryData = $this->resourceModel->loadRatingData($storeId, array_keys($indexData));
+        $ratingData = $this->resourceModel->loadRatingData($storeId, array_keys($indexData));
 
-        foreach ($inventoryData as $inventoryDataRow) {
-            $productId = (int) $inventoryDataRow['product_id'];
-            $indexData[$productId]['rating_summary'] = (float) $inventoryDataRow['rating_summary'];
+        $productIds = [];
+        foreach ($ratingData as $ratingDataRow) {
+            $productId = (int) $ratingDataRow['product_id'];
+            $indexData[$productId]['rating_summary'] = (float) $ratingDataRow['rating_summary'];
+            $productIds[] = $productId;
         }
 
         return $indexData;

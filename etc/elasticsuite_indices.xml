@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Smile_ElasticsuiteCatalog indices configuration.
+ * Smile_ElasticsuiteRating module loading configuration.
  *
  * DISCLAIMER
  *
@@ -10,15 +10,15 @@
  *
  *
  * @category  Smile
- * @package   Smile\ElasticsuiteCatalog
- * @author    Aurelien FOUCRET <aurelien.foucret@smile.fr>
+ * @package   Smile\ElasticsuiteRating
+ * @author    Tony DEPLANQUE <todep@smile.fr>
  * @copyright 2016 Smile
  * @license   Open Software License ("OSL") v. 3.0
  */
  -->
 <indices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Smile_ElasticsuiteCore:etc/elasticsuite_indices.xsd">
-    <index identifier="catalog_product" defaultSearchType="product">
+    <index identifier="catalog_product">
         <type name="product" idFieldName="entity_id">
             <datasources>
                 <datasource name="rating">Smile\ElasticsuiteRating\Model\Product\Indexer\Fulltext\Datasource\RatingData</datasource>
