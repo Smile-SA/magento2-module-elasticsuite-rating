@@ -21,6 +21,7 @@
         <sequence>
             <module name="Smile_ElasticsuiteCore" />
             <module name="Magento_Search" />
+            <module name="Magento_Catalog" />
             <module name="Magento_CatalogSearch" />
             <module name="Magento_LayeredNavigation" />
         </sequence>
