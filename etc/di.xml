@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+*
+* @category  Smile
+* @package   Smile\ElasticsuiteRating
+* @author    Tony DEPLANQUE <todep@smile.fr>
+* @copyright 2016 Smile
+* @license   Open Software License ("OSL") v. 3.0
+*/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="\Magento\Catalog\Model\Config">
+        <plugin type="Wisch\Sort\Plugin\ConfigPlugin" name="add_rating_summary_order_in_config" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="\Magento\Catalog\Model\Category\Attribute\Source\Sortby">
+        <plugin type="Wisch\Sort\Plugin\SortbyPlugin" name="add_rating_summary_order_in_sort_by" sortOrder="1" disabled="false"/>
+    </type>
+</config>
