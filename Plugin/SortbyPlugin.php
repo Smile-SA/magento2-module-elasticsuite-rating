@@ -25,13 +25,15 @@ class SortbyPlugin
      * Add rating summary to sort product
      * @SuppressWarnings(PHPMD.UnusedFormalParameter) - $sortby not used here
      *
-     * @param \Magento\Catalog\Model\Category\Attribute\Source\Sortby $sortby Observable Class.
+     * @param \Magento\Catalog\Model\Category\Attribute\Source\Sortby $sortby  Observable Class.
+     * @param array                                                   $options The options
      *
      * @return array
      */
     public function afterGetAllOptions(\Magento\Catalog\Model\Category\Attribute\Source\Sortby $sortby, $options)
     {
         $options[] = ['label' => __('Rating'), 'value' => 'rating_summary'];
+
         return $options;
     }
 }
