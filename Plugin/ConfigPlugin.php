@@ -23,16 +23,17 @@ class ConfigPlugin
 {
     /**
      * Add Rating to Available Product Listing Sort By
-     *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter) - $config not used here
      *
-     * @param \Magento\Catalog\Model\Config $config Observable Class.
+     * @param \Magento\Catalog\Model\Config $config  Observable Class.
+     * @param array                         $options The options
      *
      * @return array
      */
     public function afterGetAttributeUsedForSortByArray(\Magento\Catalog\Model\Config $config, $options)
     {
         $options['rating_summary'] = __('Rating');
+
         return $options;
     }
 }
