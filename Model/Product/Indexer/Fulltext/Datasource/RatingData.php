@@ -1,7 +1,7 @@
 <?php
 /**
  * DISCLAIMER
- * Do not edit or add to this file if you wish to upgrade Smile Elastic Suite to newer
+ * Do not edit or add to this file if you wish to upgrade this module to newer
  * versions in the future.
  *
  * @category  Smile
@@ -16,6 +16,7 @@ use Smile\ElasticsuiteCore\Api\Index\DatasourceInterface;
 use Smile\ElasticsuiteRating\Model\ResourceModel\Product\Indexer\Fulltext\Datasource\RatingData as ResourceModel;
 
 /**
+ * Ratings Datasource
  *
  * @category Smile
  * @package  Smile\ElasticsuiteRating
@@ -40,6 +41,7 @@ class RatingData implements DatasourceInterface
 
     /**
      * Add rating data to the index data.
+     *
      * {@inheritdoc}
      */
     public function addData($storeId, array $indexData)

@@ -1,5 +1,15 @@
 <?php
-
+/**
+ * DISCLAIMER
+ * Do not edit or add to this file if you wish to upgrade this module to newer
+ * versions in the future.
+ *
+ * @category  Smile
+ * @package   Smile\ElasticsuiteRating
+ * @author    Tony DEPLANQUE <todep@smile.fr>
+ * @copyright 2016 Smile
+ * @license   Open Software License ("OSL") v. 3.0
+ */
 namespace Smile\ElasticsuiteRating\Model\ResourceModel\Product\Indexer\Fulltext\Datasource;
 
 use Magento\Framework\App\ResourceConnection;
@@ -15,9 +25,8 @@ use Smile\ElasticsuiteCatalog\Model\ResourceModel\Eav\Indexer\Indexer;
  */
 class RatingData extends Indexer
 {
-
     /**
-     * RAtingData constructor.
+     * RatingData constructor.
      *
      * @param ResourceConnection    $resource     Database adapter.
      * @param StoreManagerInterface $storeManager Store manager.
@@ -39,7 +48,6 @@ class RatingData extends Indexer
      */
     public function loadRatingData($storeId, $productIds)
     {
-
         $select = $this->getConnection()->select()
             ->from(
                 $this->getTable('review_entity_summary'),
@@ -54,6 +62,4 @@ class RatingData extends Indexer
 
         return $this->getConnection()->fetchAll($select);
     }
-
-
 }
