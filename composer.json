@@ -5,7 +5,11 @@
     "authors" : [
         {
             "name" : "Tony DEPLANQUE",
-            "email" : "todepc@smile.fr"
+            "email" : "todep@smile.fr"
+        },
+        {
+            "name" : "Romain Ruaud",
+            "email" : "romain.ruaud@smile.fr"
         }
     ],
     "description" : "Smile ElasticSuite - Rating search module.",
@@ -16,15 +20,14 @@
         "elasticsearch",
         "search",
         "merchandising",
-        "core",
-        "setup"
+        "ratings"
     ],
     "require" : {
         "php" : "~5.5.0|~5.6.0|~7.0.0",
-        "magento/framework" : "*",
+        "magento/framework" : ">=100.1.0",
         "magento/magento-composer-installer" : "*",
-        "magento/module-review" : "100.0.*",
-        "smile/elasticsuite" : "~2.1.0"
+        "magento/module-review" : ">=100.1.0",
+        "smile/elasticsuite" : "^2.3.4"
     },
     "require-dev" : {
         "smile/magento2-smilelab-quality-suite" : "1.0.0"
