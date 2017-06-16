@@ -26,19 +26,6 @@ use Smile\ElasticsuiteCatalog\Model\ResourceModel\Eav\Indexer\Indexer;
 class RatingData extends Indexer
 {
     /**
-     * RatingData constructor.
-     *
-     * @param ResourceConnection    $resource     Database adapter.
-     * @param StoreManagerInterface $storeManager Store manager.
-     */
-    public function __construct(
-        ResourceConnection $resource,
-        StoreManagerInterface $storeManager
-    ) {
-        parent::__construct($resource, $storeManager);
-    }
-
-    /**
      * Load rating data for a list of product ids and a given store.
      *
      * @param integer $storeId    Store id.
