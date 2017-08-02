@@ -12,18 +12,20 @@
  * @category  Smile
  * @package   Smile\ElasticsuiteRating
  * @author    Tony DEPLANQUE <todep@smile.fr>
+ * @author    Romain Ruaud <romain.ruaud@smile.fr>
  * @copyright 2016 Smile
  * @license   Open Software License ("OSL") v. 3.0
  */
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="Smile_ElasticsuiteRating" setup_version="1.0.0">
+    <module name="Smile_ElasticsuiteRating" setup_version="1.1.0">
         <sequence>
             <module name="Smile_ElasticsuiteCore" />
             <module name="Magento_Search" />
             <module name="Magento_Catalog" />
             <module name="Magento_CatalogSearch" />
             <module name="Magento_LayeredNavigation" />
+            <module name="Magento_Review" />
         </sequence>
     </module>
 </config>

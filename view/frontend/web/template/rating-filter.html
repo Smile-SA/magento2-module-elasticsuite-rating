@@ -1,0 +1,15 @@
+<ol class="items" data-bind="foreach: getDisplayedItems()">
+    <li class="item">
+        <a class="rating-filter" data-bind="attr: {href:url}, visible: count >= 1">
+            <div class="rating-summary">
+                <div class="rating-result">
+                    <span data-bind="style: {width : label + '%'}"></span>
+                </div>
+            </div>
+            <!-- ko if: parseInt(label, 10) < 100 -->
+                <span data-bind="i18n: 'and up'"></span>
+            <!-- /ko -->
+            <span class="count" data-bind="text: count"></span>
+        </a>
+    </li>
+</ol>

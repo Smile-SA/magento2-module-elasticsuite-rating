@@ -48,13 +48,25 @@ class RatingData implements DatasourceInterface
     {
         $ratingData = $this->resourceModel->loadRatingData($storeId, array_keys($indexData));
 
-        $productIds = [];
+        array_walk($indexData, [$this, 'fillRatingsData']);
+
         foreach ($ratingData as $ratingDataRow) {
             $productId = (int) $ratingDataRow['product_id'];
             $indexData[$productId]['rating_summary'] = (float) $ratingDataRow['rating_summary'];
-            $productIds[] = $productId;
         }
 
         return $indexData;
+    }
+
+    /**
+     * Fill rating summary field with 0.
+     *
+     * @SuppressWarnings(PHPMD.UnusedPrivateMethod) Used via a callback.
+     *
+     * @param array $productData Product index data
+     */
+    private function fillRatingsData(&$productData)
+    {
+        $productData['rating_summary'] = 0;
     }
 }
