@@ -21,6 +21,7 @@
     <module name="Smile_ElasticsuiteRating" setup_version="1.1.0">
         <sequence>
             <module name="Smile_ElasticsuiteCore" />
+            <module name="Smile_ElasticsuiteVirtualCategory" />
             <module name="Magento_Search" />
             <module name="Magento_Catalog" />
             <module name="Magento_CatalogSearch" />
