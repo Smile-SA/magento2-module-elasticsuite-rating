@@ -53,6 +53,13 @@ class RatingData implements DatasourceInterface
         foreach ($ratingData as $ratingDataRow) {
             $productId = (int) $ratingDataRow['product_id'];
             $indexData[$productId]['ratings_summary'] = (float) $ratingDataRow['ratings_summary'];
+
+            if (!isset($indexData[$productId]['indexed_attributes'])) {
+                $indexData[$productId]['indexed_attributes'] = ['ratings_summary'];
+            } elseif (!in_array('ratings_summary', $indexData[$productId]['indexed_attributes'])) {
+                // Add ratings_summary only one time.
+                $indexData[$productId]['indexed_attributes'][] = 'ratings_summary';
+            }
         }
 
         return $indexData;
