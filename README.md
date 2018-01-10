@@ -46,7 +46,7 @@ The module requires :
 
 ### How to use
 
-The module is adding a new Product Attribute, called **rating_summary**.
+The module is adding a new Product Attribute, called **ratings_summary**.
 
 Since this is managed via an attribute, you are able to :
 

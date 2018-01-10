@@ -58,6 +58,10 @@ class UpgradeData implements UpgradeDataInterface
             $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
             $this->ratingSetup->createRatingAttributes($eavSetup);
         }
+        if (version_compare($context->getVersion(), '1.2.0', '<')) {
+            $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+            $this->ratingSetup->renameRatingAttribute($eavSetup);
+        }
 
         $setup->endSetup();
     }

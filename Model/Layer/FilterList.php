@@ -33,7 +33,7 @@ class FilterList extends \Smile\ElasticsuiteCatalog\Model\Layer\FilterList
     {
         $filterClassName = parent::getAttributeFilterClass($attribute);
 
-        if ($attribute->getAttributeCode() === 'rating_summary') {
+        if ($attribute->getAttributeCode() === 'ratings_summary') {
             $filterClassName = $this->filterTypes[self::RATING_FILTER];
         }
 

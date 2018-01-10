@@ -24,7 +24,7 @@
                 <datasource name="rating">Smile\ElasticsuiteRating\Model\Product\Indexer\Fulltext\Datasource\RatingData</datasource>
             </datasources>
             <mapping>
-                <field name="rating_summary" type="double"/>
+                <field name="ratings_summary" type="double"/>
             </mapping>
         </type>
     </index>

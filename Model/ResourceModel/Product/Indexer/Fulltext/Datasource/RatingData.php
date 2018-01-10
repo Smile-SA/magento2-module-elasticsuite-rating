@@ -40,7 +40,7 @@ class RatingData extends Indexer
                 $this->getTable('review_entity_summary'),
                 [
                     'entity_pk_value as product_id',
-                    'avg(rating_summary) as rating_summary',
+                    'avg(rating_summary) as ratings_summary',
                 ]
             )
             ->where('review_entity_summary.store_id = ?', $storeId)

@@ -52,7 +52,7 @@ class RatingData implements DatasourceInterface
 
         foreach ($ratingData as $ratingDataRow) {
             $productId = (int) $ratingDataRow['product_id'];
-            $indexData[$productId]['rating_summary'] = (float) $ratingDataRow['rating_summary'];
+            $indexData[$productId]['ratings_summary'] = (float) $ratingDataRow['ratings_summary'];
         }
 
         return $indexData;
@@ -67,6 +67,6 @@ class RatingData implements DatasourceInterface
      */
     private function fillRatingsData(&$productData)
     {
-        $productData['rating_summary'] = 0;
+        $productData['ratings_summary'] = 0;
     }
 }

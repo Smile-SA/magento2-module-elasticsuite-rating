@@ -48,7 +48,7 @@ class RatingSetup
         $entity = ProductAttributeInterface::ENTITY_TYPE_CODE;
         $eavSetup->addAttribute(
             $entity,
-            'rating_summary',
+            'ratings_summary',
             [
                 'type'                       => 'decimal',
                 'label'                      => 'Product Rating',
@@ -70,10 +70,21 @@ class RatingSetup
             ]
         );
 
-        $attributeId         = $eavSetup->getAttributeId($entity, 'rating_summary');
+        $attributeId         = $eavSetup->getAttributeId($entity, 'ratings_summary');
         $defaultAttributeSet = $eavSetup->getAttributeSetId($entity, 'Default');
         $defaultGroup        = $eavSetup->getAttributeGroupId($entity, $defaultAttributeSet, 'General');
 
         $eavSetup->addAttributeToSet($entity, $defaultAttributeSet, $defaultGroup, $attributeId);
+    }
+
+    /**
+     * Rename rating_summary to ratings_summary
+     *
+     * @param \Magento\Eav\Setup\EavSetup $eavSetup EAV module Setup
+     */
+    public function renameRatingAttribute($eavSetup)
+    {
+        $entity = ProductAttributeInterface::ENTITY_TYPE_CODE;
+        $eavSetup->updateAttribute($entity, 'rating_summary', ['attribute_code' => 'ratings_summary']);
     }
 }
