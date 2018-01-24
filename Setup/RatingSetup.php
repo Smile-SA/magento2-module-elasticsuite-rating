@@ -85,6 +85,6 @@ class RatingSetup
     public function renameRatingAttribute($eavSetup)
     {
         $entity = ProductAttributeInterface::ENTITY_TYPE_CODE;
-        $eavSetup->updateAttribute($entity, 'rating_summary', ['attribute_code' => 'ratings_summary']);
+        $eavSetup->updateAttribute($entity, 'ratings_summary', ['attribute_code' => 'rating_summary']);
     }
 }
