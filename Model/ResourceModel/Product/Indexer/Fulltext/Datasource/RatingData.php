@@ -37,14 +37,14 @@ class RatingData extends Indexer
     {
         $select = $this->getConnection()->select()
             ->from(
-                $this->getTable('review_entity_summary'),
+                ['res' => $this->getTable('review_entity_summary')],
                 [
                     'entity_pk_value as product_id',
                     'avg(rating_summary) as ratings_summary',
                 ]
             )
-            ->where('review_entity_summary.store_id = ?', $storeId)
-            ->where('review_entity_summary.entity_pk_value IN(?)', $productIds)
+            ->where('res.store_id = ?', $storeId)
+            ->where('res.entity_pk_value IN(?)', $productIds)
             ->group('entity_pk_value');
 
         return $this->getConnection()->fetchAll($select);
