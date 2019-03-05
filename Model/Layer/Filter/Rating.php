@@ -31,13 +31,16 @@ class Rating extends \Smile\ElasticsuiteCatalog\Model\Layer\Filter\Attribute
      */
     public function addFacetToCollection($config = [])
     {
-        $facetField  = $this->getFilterField();
-        $facetType   = \Smile\ElasticsuiteCore\Search\Request\BucketInterface::TYPE_HISTOGRAM;
-        $facetConfig = ['minDocCount' => 1, 'interval' => (int) self::RATING_AGG_INTERVAL];
+        $facetConfig = [
+            'name'        => $this->getFilterField(),
+            'type'        => \Smile\ElasticsuiteCore\Search\Request\BucketInterface::TYPE_HISTOGRAM,
+            'minDocCount' => 1,
+            'interval'    => (int) self::RATING_AGG_INTERVAL
+        ];
 
         /** @var \Smile\ElasticsuiteCatalog\Model\ResourceModel\Product\Fulltext\Collection $productCollection */
         $productCollection = $this->getLayer()->getProductCollection();
-        $productCollection->addFacet($facetField, $facetType, $facetConfig);
+        $productCollection->addFacet($facetConfig);
 
         return $this;
     }
