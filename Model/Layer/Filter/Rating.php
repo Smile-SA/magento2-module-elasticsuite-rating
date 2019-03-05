@@ -120,14 +120,18 @@ class Rating extends \Smile\ElasticsuiteCatalog\Model\Layer\Filter\Attribute
             }
         }
         krsort($optionsFacetedData);
+        
+        $minCount = !empty($optionsFacetedData) ? min(array_column($optionsFacetedData, 'count')) : 0;
 
-        foreach ($optionsFacetedData as $value => $data) {
-            $sumCount += (int) $data['count'];
-            $items[$value] = [
-                'label' => $value,
-                'value' => $value,
-                'count' => $sumCount,
-            ];
+		if (!empty($this->currentFilterValue) || $minCount < $productCollection->getSize()) {
+	        foreach ($optionsFacetedData as $value => $data) {
+	            $sumCount += (int) $data['count'];
+	            $items[$value] = [
+	                'label' => $value,
+	                'value' => $value,
+	                'count' => $sumCount,
+	            ];
+	        }
         }
 
         return $items;
