@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Smile_ElasticsuiteCatalog dependency injection configuration.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Smile ElasticSuite to newer
+ * versions in the future.
+ *
+ * @category  Smile
+ * @package   Smile\ElasticsuiteRating
+ * @author    Romain Ruaud <romain.ruaud@smile.fr>
+ * @copyright 2019 Smile
+ * @license   Open Software License ("OSL") v. 3.0
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Datasources resolver -->
+    <type name="Smile\ElasticsuiteCore\Index\DataSourceResolver">
+        <arguments>
+            <argument name="datasources" xsi:type="array">
+                <item name="catalog_product" xsi:type="array">
+                    <item name="rating" xsi:type="object">Smile\ElasticsuiteRating\Model\Product\Indexer\Fulltext\Datasource\RatingData</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="\Smile\ElasticsuiteCatalog\Search\Request\Product\Attribute\AggregationResolver">
+        <plugin name="rating_aggregation" type="Smile\ElasticsuiteRating\Plugin\Search\Request\Product\Attribute\AggregationResolver"/>
+    </type>
+
+</config>
