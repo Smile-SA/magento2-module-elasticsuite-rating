@@ -18,14 +18,13 @@
  -->
 <indices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Smile_ElasticsuiteCore:etc/elasticsuite_indices.xsd">
+ 
     <index identifier="catalog_product" defaultSearchType="product">
         <type name="product" idFieldName="entity_id">
-            <datasources>
-                <datasource name="rating">Smile\ElasticsuiteRating\Model\Product\Indexer\Fulltext\Datasource\RatingData</datasource>
-            </datasources>
             <mapping>
                 <field name="ratings_summary" type="double"/>
             </mapping>
         </type>
     </index>
+ 
 </indices>
