@@ -24,7 +24,6 @@
             <module name="Smile_ElasticsuiteVirtualCategory" />
             <module name="Magento_Search" />
             <module name="Magento_Catalog" />
-            <module name="Magento_CatalogSearch" />
             <module name="Magento_LayeredNavigation" />
             <module name="Magento_Review" />
         </sequence>
