@@ -29,9 +29,9 @@
         }
     ],
     "require" : {
-        "magento/framework" : ">=100.1.0",
+        "magento/framework" : ">=103.0.0",
         "magento/magento-composer-installer" : "*",
-        "magento/module-review" : ">=100.1.0",
+        "magento/module-review" : ">=100.4.0",
         "smile/elasticsuite": "^2.8.0"
     },
     "require-dev" : {
