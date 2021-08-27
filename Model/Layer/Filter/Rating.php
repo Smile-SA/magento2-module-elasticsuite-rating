@@ -10,6 +10,7 @@
  * @copyright 2017 Smile
  * @license   Open Software License ("OSL") v. 3.0
  */
+
 namespace Smile\ElasticsuiteRating\Model\Layer\Filter;
 
 /**
@@ -25,25 +26,6 @@ class Rating extends \Smile\ElasticsuiteCatalog\Model\Layer\Filter\Attribute
      * Default interval, based on 0-100 divided in five stars.
      */
     const RATING_AGG_INTERVAL = 20;
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addFacetToCollection($config = [])
-    {
-        $facetConfig = [
-            'name'        => $this->getFilterField(),
-            'type'        => \Smile\ElasticsuiteCore\Search\Request\BucketInterface::TYPE_HISTOGRAM,
-            'minDocCount' => 1,
-            'interval'    => (int) self::RATING_AGG_INTERVAL
-        ];
-
-        /** @var \Smile\ElasticsuiteCatalog\Model\ResourceModel\Product\Fulltext\Collection $productCollection */
-        $productCollection = $this->getLayer()->getProductCollection();
-        $productCollection->addFacet($facetConfig);
-
-        return $this;
-    }
 
     /**
      * {@inheritDoc}
@@ -123,18 +105,18 @@ class Rating extends \Smile\ElasticsuiteCatalog\Model\Layer\Filter\Attribute
             }
         }
         krsort($optionsFacetedData);
-        
+
         $minCount = !empty($optionsFacetedData) ? min(array_column($optionsFacetedData, 'count')) : 0;
 
-		if (!empty($this->currentFilterValue) || $minCount < $productCollection->getSize()) {
-	        foreach ($optionsFacetedData as $value => $data) {
-	            $sumCount += (int) $data['count'];
-	            $items[$value] = [
-	                'label' => $value,
-	                'value' => $value,
-	                'count' => $sumCount,
-	            ];
-	        }
+        if (!empty($this->currentFilterValue) || $minCount < $productCollection->getSize()) {
+            foreach ($optionsFacetedData as $value => $data) {
+                $sumCount      += (int) $data['count'];
+                $items[$value] = [
+                    'label' => $value,
+                    'value' => $value,
+                    'count' => $sumCount,
+                ];
+            }
         }
 
         return $items;
