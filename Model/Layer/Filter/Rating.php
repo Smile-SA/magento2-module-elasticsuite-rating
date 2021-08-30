@@ -101,7 +101,7 @@ class Rating extends \Smile\ElasticsuiteCatalog\Model\Layer\Filter\Attribute
 
         while (($maxValue = $maxValue - self::RATING_AGG_INTERVAL) && $maxValue > 0) {
             if (!isset($optionsFacetedData[$maxValue])) {
-                $optionsFacetedData[$maxValue] = 0;
+                $optionsFacetedData[$maxValue] = ['count' => 0];
             }
         }
         krsort($optionsFacetedData);
