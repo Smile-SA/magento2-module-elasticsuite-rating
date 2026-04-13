@@ -18,19 +18,13 @@
  -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <virtualType name="categoryFilterList" type="Smile\ElasticsuiteRating\Model\Layer\FilterList">
+    <!-- Register rating filter type provider -->
+    <type name="Smile\ElasticsuiteCatalog\Model\Layer\FilterList">
         <arguments>
-            <argument name="filters" xsi:type="array">
-                <item name="rating" xsi:type="string">Smile\ElasticsuiteRating\Model\Layer\Filter\Rating</item>
+            <argument name="filterTypeProviders" xsi:type="array">
+                <item name="rating" xsi:type="object">Smile\ElasticsuiteRating\Model\Layer\Filter\TypeProvider\Rating</item>
             </argument>
         </arguments>
-    </virtualType>
+    </type>
 
-    <virtualType name="searchFilterList" type="Smile\ElasticsuiteRating\Model\Layer\FilterList">
-        <arguments>
-            <argument name="filters" xsi:type="array">
-                <item name="rating" xsi:type="string">Smile\ElasticsuiteRating\Model\Layer\Filter\Rating</item>
-            </argument>
-        </arguments>
-    </virtualType>
 </config>
